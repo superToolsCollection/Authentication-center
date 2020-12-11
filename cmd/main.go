@@ -1,24 +1,41 @@
 package main
 
 import (
-	"authentication-center/internal/app/engine"
-	"authentication-center/internal/app/model"
-	"authentication-center/internal/app/service"
-	"fmt"
-	"github.com/douyu/jupiter"
-	"log"
+	"flag"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+
+	"authentication-center/internal/di"
+	"github.com/go-kratos/kratos/pkg/conf/paladin"
+	"github.com/go-kratos/kratos/pkg/log"
 )
 
 func main() {
-	eng := engine.NewEngine()
-	eng.RegisterHooks(jupiter.StageAfterStop, func() error {
-		fmt.Println("exit jupiter app ...")
-		return nil
-	})
-
-	model.Init()
-	service.Init()
-	if err := eng.Run(); err != nil {
-		log.Fatal(err)
+	flag.Parse()
+	log.Init(nil) // debug flag: log.dir={path}
+	defer log.Close()
+	log.Info("authentication-center start")
+	paladin.Init()
+	_, closeFunc, err := di.InitApp()
+	if err != nil {
+		panic(err)
+	}
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, syscall.SIGHUP, syscall.SIGQUIT, syscall.SIGTERM, syscall.SIGINT)
+	for {
+		s := <-c
+		log.Info("get a signal %s", s.String())
+		switch s {
+		case syscall.SIGQUIT, syscall.SIGTERM, syscall.SIGINT:
+			closeFunc()
+			log.Info("authentication-center exit")
+			time.Sleep(time.Second)
+			return
+		case syscall.SIGHUP:
+		default:
+			return
+		}
 	}
 }
