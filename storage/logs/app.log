@@ -1,0 +1,12 @@
+2021/01/04 21:11:59 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Start to listening the incoming requests on http address :8000","time":1609765919888925000}
+2021/01/04 21:12:00 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609765920890206000}
+2021/01/04 21:12:01 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609765921892062000}
+2021/01/04 21:12:02 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609765922895924000}
+2021/01/04 21:12:02 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"error","message":"The server has no response, or it might took too long to start up.","time":1609765922896166000}
+2021/01/04 21:12:02 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"The server has been deployed successfully.","time":1609765922896242000}
+2021/01/04 21:17:57 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Start to listening the incoming requests on http address :8000","time":1609766277761566000}
+2021/01/04 21:17:58 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609766278765324000}
+2021/01/04 21:17:59 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609766279765578000}
+2021/01/04 21:18:00 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"Waiting for the server, retry in 1 second.","time":1609766280770395000}
+2021/01/04 21:18:00 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"error","message":"The server has no response, or it might took too long to start up.","time":1609766280770485000}
+2021/01/04 21:18:00 {"callers":["/Users/super/develop/authentication-center/main.go: 52 main.init.0"],"level":"info","message":"The server has been deployed successfully.","time":1609766280770526000}
