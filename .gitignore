@@ -7,3 +7,4 @@
 vendor/
 
 configs/
+.DS_Store
