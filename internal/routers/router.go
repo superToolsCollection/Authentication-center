@@ -11,6 +11,7 @@ import (
 
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -33,6 +34,19 @@ var methodLimiters = limiter.NewMethodLimiter().AddBuckets(
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
+	//r.Use(cors.New(cors.Config{
+	//	AllowOrigins:     []string{"https://foo.com"},
+	//	AllowMethods:     []string{"PUT", "PATCH"},
+	//	AllowHeaders:     []string{"Origin"},
+	//	ExposeHeaders:    []string{"Content-Length"},
+	//	AllowCredentials: true,
+	//	AllowOriginFunc: func(origin string) bool {
+	//		return origin == "https://github.com"
+	//	},
+	//	MaxAge: 12 * time.Hour,
+	//}))
+	// allow all origins解决跨域问题
+	r.Use(cors.Default())
 	if global.ServerSetting.RunMode == "debug" {
 		r.Use(gin.Logger())
 		r.Use(gin.Recovery())
